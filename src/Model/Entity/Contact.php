@@ -14,6 +14,7 @@ use Cake\ORM\Entity;
  * @property string|null $phone
  * @property string|null $twitter_username
  * @property string|null $github_username
+ * @propert string|null $photo
  */
 class Contact extends Entity
 {
@@ -32,5 +33,6 @@ class Contact extends Entity
         'phone' => true,
         'twitter_username' => true,
         'github_username' => true,
+        'photo' => true,
     ];
 }

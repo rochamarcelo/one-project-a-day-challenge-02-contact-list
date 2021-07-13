@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-12">
         <div class="contacts form content">
-            <?= $this->Form->create($contact) ?>
+            <?= $this->Form->create($contact, ['type' => 'file']) ?>
             <fieldset>
                 <?php
                     echo $this->Form->control('name', [
@@ -35,6 +35,13 @@
                         ],
                     ]);
                     echo $this->Form->control('github_username', [
+                        'class' => 'form-control',
+                        'label' => [
+                            'class' => 'form-label',
+                        ],
+                    ]);
+                    echo $this->Form->control('photo', [
+                        'type' => 'file',
                         'class' => 'form-control',
                         'label' => [
                             'class' => 'form-label',

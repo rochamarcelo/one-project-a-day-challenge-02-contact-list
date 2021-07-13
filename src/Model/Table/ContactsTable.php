@@ -6,6 +6,7 @@ namespace App\Model\Table;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
+use Cake\Utility\Text;
 use Cake\Validation\Validator;
 
 /**
@@ -60,6 +61,16 @@ class ContactsTable extends Table
                     'github_username',
                 ],
             ]);
+
+        $this->addBehavior('Josegonzalez/Upload.Upload', [
+            'photo' => [
+                'nameCallback' => function($table, $entity) {
+                    $ext = pathinfo($entity->photo->getClientFilename(), PATHINFO_EXTENSION);
+
+                    return time() . '-' . Text::uuid() . '.' . $ext;
+                }
+            ],
+        ]);
     }
 
     /**

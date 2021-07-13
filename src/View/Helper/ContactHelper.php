@@ -28,6 +28,15 @@ class ContactHelper extends Helper
      */
     public function avatar($contact): string
     {
+        if (!empty($contact->photo)) {
+            return $this->Html->image(
+                '/files/Contacts/photo/' . $contact->photo,
+                [
+                    'class' => 'rounded',
+                    'style' => 'width:80px;height:80px;',
+                ]
+            );
+        }
         $url = 'https://www.gravatar.com/avatar/';
         return $this->Html->image(
             $url .md5($contact->email),
