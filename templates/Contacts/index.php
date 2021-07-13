@@ -5,47 +5,55 @@
  */
 ?>
 <div class="contacts index content">
-    <?= $this->Html->link(__('New Contact'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Contacts') ?></h3>
-    <div class="table-responsive">
-        <table>
-            <thead>
-                <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('name') ?></th>
-                    <th><?= $this->Paginator->sort('email') ?></th>
-                    <th><?= $this->Paginator->sort('phone') ?></th>
-                    <th><?= $this->Paginator->sort('twitter_username') ?></th>
-                    <th><?= $this->Paginator->sort('github_username') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php foreach ($contacts as $contact): ?>
-                <tr>
-                    <td><?= $this->Number->format($contact->id) ?></td>
-                    <td><?= h($contact->name) ?></td>
-                    <td><?= h($contact->email) ?></td>
-                    <td><?= h($contact->phone) ?></td>
-                    <td><?= h($contact->twitter_username) ?></td>
-                    <td><?= h($contact->github_username) ?></td>
-                    <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $contact->id]) ?>
+    <?= $this->Html->link(
+        __('New Contact'),
+        ['action' => 'add'],
+        ['class' => 'btn btn-primary mb-3']
+    ) ?>
+    <div class="accordion accordion-flush" id="accordionContacts">
+        <?php foreach ($contacts as $contact): ?>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-heading<?= h($contact->id)?>">
+                    <button class="accordion-button collapsed"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapse<?= h($contact->id)?>"
+                            aria-expanded="false"
+                            aria-controls="flush-collapse<?= h($contact->id)?>">
+                        <?= h($contact->name) ?>
+                    </button>
+                </h2>
+                <div id="flush-collapse<?= h($contact->id)?>"
+                     class="accordion-collapse collapse"
+                     aria-labelledby="flush-heading<?= h($contact->id)?>"
+                     data-bs-parent="#accordionContacts">
+                    <div class="accordion-body">
+                        <dl>
+                            <dt><?= __('E-mail')?></dt>
+                            <dd><?= h($contact->email)?></dd>
+
+                            <dt><?= __('Phone')?></dt>
+                            <dd><?= h($contact->phone)?></dd>
+
+                            <dt><?= __('Twitter')?></dt>
+                            <dd><?= h($contact->twitter_username)?></dd>
+
+                            <dt><?= __('Github')?></dt>
+                            <dd><?= h($contact->github_username)?></dd>
+                        </dl>
+
                         <?= $this->Html->link(__('Edit'), ['action' => 'edit', $contact->id]) ?>
                         <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $contact->id], ['confirm' => __('Are you sure you want to delete # {0}?', $contact->id)]) ?>
-                    </td>
-                </tr>
-                <?php endforeach; ?>
-            </tbody>
-        </table>
+                </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
     </div>
-    <div class="paginator">
+
+    <div class="paginator mt-3">
         <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
             <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
             <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
         </ul>
         <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
     </div>
