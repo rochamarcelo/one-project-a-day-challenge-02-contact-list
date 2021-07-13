@@ -16,7 +16,10 @@
                             data-bs-target="#flush-collapse<?= h($contact->id)?>"
                             aria-expanded="false"
                             aria-controls="flush-collapse<?= h($contact->id)?>">
+                        <?= $this->Contact->avatar($contact)?>
+                        <span class="m-1 font-monospace">
                         <?= h($contact->name) ?>
+                        </span>
                     </button>
                 </h2>
                 <div id="flush-collapse<?= h($contact->id)?>"
