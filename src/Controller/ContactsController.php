@@ -18,7 +18,11 @@ class ContactsController extends AppController
      */
     public function index()
     {
-        $contacts = $this->paginate($this->Contacts);
+        $query = $this->Contacts
+            ->find('search', [
+                'search' => $this->request->getQueryParams(),
+            ]);
+        $contacts = $this->paginate($query);
 
         $this->set(compact('contacts'));
     }

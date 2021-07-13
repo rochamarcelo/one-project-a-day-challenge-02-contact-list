@@ -5,11 +5,7 @@
  */
 ?>
 <div class="contacts index content">
-    <?= $this->Html->link(
-        __('New Contact'),
-        ['action' => 'add'],
-        ['class' => 'btn btn-primary mb-3']
-    ) ?>
+    <?= $this->element('header')?>
     <div class="accordion accordion-flush" id="accordionContacts">
         <?php foreach ($contacts as $contact): ?>
             <div class="accordion-item">
