@@ -9,7 +9,11 @@ https://github.com/FriendsOfCake/cakephp-upload
    ```
    composer create-project --prefer-dist cakephp/app
   ```
-- 28a0dea bin/cake bake migration CreateContacts name email phone twitter_username github_username | bin/cake migrations migrate
+- 28a0dea Migrations
+  ```
+  bin/cake bake migration CreateContacts name email phone twitter_username github_username
+  bin/cake migrations migrate
+  ```
 - 68e0b1b Baking components
   ```
   bin/cake bake controller Contacts
@@ -29,4 +33,6 @@ https://github.com/FriendsOfCake/cakephp-upload
     ```
     composer require josegonzalez/cakephp-upload
     bin/cake plugin load Josegonzalez/Upload
+    bin/cake bake migration AddPhotoToContacts photo
+    bin/cake migrations migrate
     ```
