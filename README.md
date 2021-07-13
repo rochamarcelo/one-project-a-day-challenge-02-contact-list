@@ -1,7 +1,7 @@
 # One Project a Day with CakePHP - 02 Contact List
 
-On this project I'm using CakePHP 4, bootstrap 5, https://github.com/FriendsOfCake/search and
-https://github.com/FriendsOfCake/cakephp-upload
+On this project I'm using CakePHP 4, bootstrap 5, https://github.com/FriendsOfCake/search,
+https://github.com/FriendsOfCake/cakephp-upload and gravatar url.
 
 ## Steps to create this project
 
