@@ -56,6 +56,7 @@ class ContactsController extends AppController
             }
             $this->Flash->error(__('The contact could not be saved. Please, try again.'));
         }
+        $this->viewBuilder()->setTemplate('form');
         $this->set(compact('contact'));
     }
 
@@ -80,6 +81,7 @@ class ContactsController extends AppController
             }
             $this->Flash->error(__('The contact could not be saved. Please, try again.'));
         }
+        $this->viewBuilder()->setTemplate('form');
         $this->set(compact('contact'));
     }
 
