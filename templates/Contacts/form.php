@@ -40,13 +40,14 @@
                             'class' => 'form-label',
                         ],
                     ]);
-                    echo $this->Form->control('photo', [
-                        'type' => 'file',
-                        'class' => 'form-control',
-                        'label' => [
-                            'class' => 'form-label',
-                        ],
-                    ]);
+                    //@todo re-add file input when migrate the upload plugin.
+//                    echo $this->Form->control('photo', [
+//                        'type' => 'file',
+//                        'class' => 'form-control',
+//                        'label' => [
+//                            'class' => 'form-label',
+//                        ],
+//                    ]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit'), ['class' => 'btn btn-primary']) ?>
