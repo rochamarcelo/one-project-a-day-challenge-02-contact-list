@@ -11,13 +11,13 @@ use Cake\View\View;
  */
 class ContactHelper extends Helper
 {
-    protected $helpers = ['Html'];
+    protected array $helpers = ['Html'];
     /**
      * Default configuration.
      *
      * @var array
      */
-    protected $_defaultConfig = [];
+    protected array $_defaultConfig = [];
 
     /**
      * Retrieve the avatar image tag

@@ -50,3 +50,8 @@ ConnectionManager::alias('test_debug_kit', 'debug_kit');
 // does not allow the sessionid to be set after stdout
 // has been written to.
 session_id('cli');
+
+if (env('FIXTURE_SCHEMA_METADATA')) {
+	$loader = new Cake\TestSuite\Fixture\SchemaLoader();
+	$loader->loadInternalFile(env('FIXTURE_SCHEMA_METADATA'));
+}
