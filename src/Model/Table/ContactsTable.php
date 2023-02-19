@@ -61,16 +61,16 @@ class ContactsTable extends Table
                     'github_username',
                 ],
             ]);
-
-        $this->addBehavior('Josegonzalez/Upload.Upload', [
-            'photo' => [
-                'nameCallback' => function($table, $entity) {
-                    $ext = pathinfo($entity->photo->getClientFilename(), PATHINFO_EXTENSION);
-
-                    return time() . '-' . Text::uuid() . '.' . $ext;
-                }
-            ],
-        ]);
+            //@todo re-add the behavior after upgrading the plugin.
+//        $this->addBehavior('Josegonzalez/Upload.Upload', [
+//            'photo' => [
+//                'nameCallback' => function($table, $entity) {
+//                    $ext = pathinfo($entity->photo->getClientFilename(), PATHINFO_EXTENSION);
+//
+//                    return time() . '-' . Text::uuid() . '.' . $ext;
+//                }
+//            ],
+//        ]);
     }
 
     /**

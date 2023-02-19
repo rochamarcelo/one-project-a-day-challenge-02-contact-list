@@ -44,7 +44,8 @@ class Application extends BaseApplication
      */
     public function bootstrap(): void
     {
-        $this->addPlugin('Josegonzalez/Upload');
+        //@todo upgrade Upload plugin.
+//        $this->addPlugin('Josegonzalez/Upload');
 
         $this->addPlugin('Search');
 
